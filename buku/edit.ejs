@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Data Buku</title>
+</head>
+<body style="font-family: sans-serif; background: #f4f7f6; padding: 30px;">
+    <div style="max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h2>✏️ Edit Data Buku</h2>
+        <form action="/buku/edit/<%= buku.id %>" method="POST">
+            <div style="margin-bottom: 12px;">
+                <label>Judul Buku:</label><br>
+                <input type="text" name="judul" value="<%= buku.judul %>" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            </div>
+            <div style="margin-bottom: 12px;">
+                <label>Penulis:</label><br>
+                <input type="text" name="penulis" value="<%= buku.penulis %>" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            </div>
+            <div style="margin-bottom: 12px;">
+                <label>Kategori:</label><br>
+                <select name="kategori" required style="width: 100%; padding: 8px; margin-top: 5px;">
+                    <option value="Fiksi" <%= buku.kategori === 'Fiksi' ? 'selected' : '' %>>Fiksi</option>
+                    <option value="Non-Fiksi" <%= buku.kategori === 'Non-Fiksi' ? 'selected' : '' %>>Non-Fiksi</option>
+                    <option value="Sains" <%= buku.kategori === 'Sains' ? 'selected' : '' %>>Sains</option>
+                    <option value="Teknologi" <%= buku.kategori === 'Teknologi' ? 'selected' : '' %>>Teknologi</option>
+                    <option value="Sejarah" <%= buku.kategori === 'Sejarah' ? 'selected' : '' %>>Sejarah</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <label>Tahun Terbit:</label><br>
+                <input type="number" name="tahun_terbit" value="<%= buku.tahun_terbit %>" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            </div>
+            <div style="margin-bottom: 12px;">
+                <label>Stok:</label><br>
+                <input type="number" name="stok" value="<%= buku.stok %>" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label>Deskripsi:</label><br>
+                <textarea name="deskripsi" rows="3" style="width: 100%; padding: 8px; margin-top: 5px;"><%= buku.deskripsi %></textarea>
+            </div>
+            <button type="submit" style="background: #007bff; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 4px;">Perbarui Buku</button>
+            <a href="/buku" style="margin-left: 10px; text-decoration: none; color: #6c757d;">Batal</a>
+        </form>
+    </div>
+</body>
+</html>
